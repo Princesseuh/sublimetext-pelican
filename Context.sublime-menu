@@ -1,0 +1,13 @@
+[
+    {
+        "id" : "Pelican",
+        "caption" : "Pelican",
+        "children":
+        [
+            {
+                "caption" : "New Article (Markdown)",
+                "command" : "create_markdown_article"
+            }
+        ]
+    }
+]

@@ -1,0 +1,10 @@
+{
+    // Author
+    // Leave empty if you don't want the 'Author' metatag at all.
+    "author" : "",
+
+    // Blog Path. If this is not specified most commands won't work!
+    "blog_path_Windows" : "",
+    "blog_path_Darwin" : "",
+    "blog_path_Linux" : "",
+}
