@@ -1,15 +1,15 @@
 {
     // Author
     // If empty, the Author metatag will be ommited (which you probably want if this a solo blog)
-    "author" : "Princesseuh",
+    "author" : "",
 
     // Paths. If this is not specified most commands won't work!
     "blog_path_Windows" : "",
     "blog_path_Darwin" : "",
-    "blog_path_Linux" : "/home/erika/Projects/princesseuh.net-pelican/",
+    "blog_path_Linux" : "",
 
     // This where articles will be stored until you finalize them using this tool.. or move them manually
-    // This path relative to your blog path. Example values would be content/drafts or drafts
+    // This path is relative to your blog path. Example values would be content/drafts or drafts
     "draft_path" : "content/drafts",
 
     // Filenames
