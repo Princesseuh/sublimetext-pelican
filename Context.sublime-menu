@@ -7,6 +7,14 @@
             {
                 "caption" : "New Article (Markdown)",
                 "command" : "create_markdown_article"
+            },
+            {
+                "caption" : "Insert metatags (Markdown)",
+                "command" : "insert_basic_content"
+            },
+            {
+                "caption" : "Update date metatags (Markdown)",
+                "command" : "update_date"
             }
         ]
     }

@@ -1,10 +1,28 @@
 {
     // Author
-    // Leave empty if you don't want the 'Author' metatag at all.
-    "author" : "",
+    // If empty, the Author metatag will be ommited (which you probably want if this a solo blog)
+    "author" : "Princesseuh",
 
-    // Blog Path. If this is not specified most commands won't work!
+    // Paths. If this is not specified most commands won't work!
     "blog_path_Windows" : "",
     "blog_path_Darwin" : "",
-    "blog_path_Linux" : "",
+    "blog_path_Linux" : "/home/erika/Projects/princesseuh.net-pelican/",
+
+    // This where articles will be stored until you finalize them using this tool.. or move them manually
+    // This path relative to your blog path. Example values would be content/drafts or drafts
+    "draft_path" : "content/drafts",
+
+    // Filenames
+    // Tags supported : {title}, {date}, {slug}, {author}
+    "article_file_name" : "{date}-{slug}",
+
+    // Markdown file extension
+    // Pelican use these : .md, .markdown, .mkd and .mdown
+    // https://github.com/getpelican/pelican/blob/a07c0e6e042a0b7a26a7f97ebd5e5eb977eea160/pelican/readers.py#L245
+    "markdown_extension" : ".md",
+
+    // Commands Settings
+
+    // If set to True, the view will be scrolled to the date when the update date command is used
+    "show_date_on_update": true
 }
