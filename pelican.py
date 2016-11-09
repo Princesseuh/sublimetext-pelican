@@ -10,38 +10,48 @@ import functools
 class CreateMarkdownArticleCommand(sublime_plugin.WindowCommand):
     def run(self):
         blog_path = get_setting("blog_path_%s" % platform.system(), None)
-        if not blog_path:
-            print("Please define a blog path in your configuration file")
-            return
-        else:
-            draft_path = os.path.join(
-                blog_path,
-                get_setting("draft_path", "drafts"))
-
+        if not get_setting("create_file_on_article", True):
             self.window.show_input_panel(
                 "Post Title:", "",
-                functools.partial(self.on_done, draft_path),
+                functools.partial(self.on_done, "", False),
                 None, None)
+        else:
+            if not blog_path:
+                print("Please define a blog path in your configuration file")
+                return
+            else:
+                draft_path = os.path.join(
+                    blog_path,
+                    get_setting("draft_path", "drafts"))
 
-    def on_done(self, path, name):
+                self.window.show_input_panel(
+                    "Post Title:", "",
+                    functools.partial(self.on_done, draft_path, True),
+                    None, None)
+
+    def on_done(self, path, create_file, name):
         file_data = {}
         file_data['title'] = name
         file_data['slug'] = slugify(name)
         file_data['date'] = slug_date("%Y-%m-%d")
         file_data['author'] = get_setting("author", "")
 
-        # File info
-        file_name = get_setting("article_file_name",
-                                "{date}-{slug}").format(**file_data)
+        if create_file:
+            # File info
+            file_name = get_setting("article_file_name",
+                                    "{date}-{slug}").format(**file_data)
 
-        file_extension = get_setting("markdown_extension", ".md")
-        file_name = os.path.join(path, file_name + file_extension)
+            file_extension = get_setting("markdown_extension", ".md")
+            file_name = os.path.join(path, file_name + file_extension)
 
-        open(file_name, 'w+', encoding='utf8', newline='').close()
+            open(file_name, 'w+', encoding='utf8', newline='').close()
 
-        new_view = self.window.open_file(file_name)
+            new_view = self.window.open_file(file_name)
+        else:
+            new_view = self.window.new_file()
 
-        # Move the cursor to the content so we can start writing!
+        # Add basic content
+        # and move the cursor to the content so we can start writing!
         def finish_creation():
             if new_view.is_loading():
                 sublime.set_timeout(finish_creation, 100)
@@ -86,7 +96,6 @@ class AddBasicContentCommand(sublime_plugin.TextCommand):
                    "Status: draft"\
                    "\n\n" % data['slug']
         self.view.insert(edit, 0, content)
-        self.view.run_command("save")
 
 
 class UpdateDateCommand(sublime_plugin.TextCommand):

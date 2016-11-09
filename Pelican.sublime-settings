@@ -3,7 +3,7 @@
     // If empty, the Author metatag will be ommited (which you probably want if this a solo blog)
     "author" : "",
 
-    // Paths. If this is not specified most commands won't work!
+    // Paths. If at least one of these is not specified, you won't be able to finalize articles
     "blog_path_Windows" : "",
     "blog_path_Darwin" : "",
     "blog_path_Linux" : "",
@@ -23,6 +23,9 @@
 
     // Commands Settings
 
-    // If set to True, the view will be scrolled to the date when the update date command is used
+    // If set to false, the 'New articles' commands will create a new buffer instead of a new file
+    "create_file_on_article": true,
+
+    // If set to true, the view will be scrolled to the date when the update date command is used
     "show_date_on_update": true
 }
