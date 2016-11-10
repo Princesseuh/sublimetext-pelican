@@ -8,6 +8,10 @@
     "blog_path_Darwin" : "",
     "blog_path_Linux" : "",
 
+    // This is where your final articles will be stored
+    // This path is relative to your blog path. A common value is simply content
+    "content_path" : "content",
+
     // This where articles will be stored until you finalize them using this tool.. or move them manually
     // This path is relative to your blog path. Example values would be content/drafts or drafts
     "draft_path" : "content/drafts",

@@ -116,6 +116,26 @@ class UpdateDateCommand(sublime_plugin.TextCommand):
             self.view.show(full_date_region)
 
 
+class UpdateModifiedDateCommand(sublime_plugin.TextCommand):
+    def run(self, edit):
+        modified_region = self.view.find(':?modified:\s*',
+                                         0,
+                                         sublime.IGNORECASE)
+
+        # Add the Modified metatag if it's not present
+        if not modified_region:
+            date_region = self.view.find(':?date:\s*', 0, sublime.IGNORECASE)
+
+            self.view.insert(edit,
+                             self.view.line(date_region).end(),
+                             "\nModified: %s" % slug_date("%Y-%m-%d %H:%M:%S"))
+        else:
+            modified_region = sublime.Region(
+                modified_region.end(), self.view.line(modified_region).end())
+            self.view.replace(
+                edit, modified_region, slug_date("%Y-%m-%d %H:%M:%S"))
+
+
 # Simple helper class
 def get_setting(setting_name, default):
     settings = sublime.load_settings('Pelican.sublime-settings')

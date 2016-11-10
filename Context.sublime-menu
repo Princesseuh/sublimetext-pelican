@@ -13,8 +13,12 @@
                 "command" : "insert_basic_content"
             },
             {
-                "caption" : "Update date metatags (Markdown)",
+                "caption" : "Update date metatag",
                 "command" : "update_date"
+            },
+            {
+                "caption" : "Create/Update modified metatag",
+                "command" : "update_modified_date"
             }
         ]
     }
