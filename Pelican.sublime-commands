@@ -1,0 +1,6 @@
+[
+    { "caption" : "Pelican: New Article", "command" : "create_markdown_article"},
+    { "caption" : "Pelican: Insert Metatags", "command" : "insert_basic_content"},
+    { "caption" : "Pelican: Update Date Metatag", "command" : "update_date"},
+    { "caption" : "Pelican: Create/Update Modified Metatag", "command" : "update_modified_date"}
+]

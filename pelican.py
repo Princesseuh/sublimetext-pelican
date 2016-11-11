@@ -59,6 +59,8 @@ class CreateMarkdownArticleCommand(sublime_plugin.WindowCommand):
                 new_view.run_command('add_basic_content', file_data)
                 new_view.run_command('move_to',
                                      {"extend": "true", "to": "eof"})
+                if create_file:
+                    new_view.run_command("save")
         finish_creation()
 
 
